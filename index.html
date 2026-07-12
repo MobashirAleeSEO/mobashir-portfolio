@@ -46,6 +46,8 @@
     color:var(--forest);
     font-weight:600;
     line-height:1.08;
+    font-optical-sizing:none;
+    font-variation-settings:'opsz' 30;
   }
   body.dark h1, body.dark h2, body.dark h3{ color:var(--cream); }
   .italic{ font-style:italic; font-weight:500; color:var(--amber-deep); }
@@ -119,7 +121,7 @@
   .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; margin-bottom:56px; }
   .hero .btn-outline{ color:#F5F1E8; border-color:rgba(245,241,232,0.4); }
   .stat-row{ display:flex; gap:44px; flex-wrap:wrap; border-top:1px solid rgba(245,241,232,0.2); padding-top:30px; }
-  .stat-num{ font-family:'Fraunces',serif; font-size:32px; color:var(--amber); display:block; }
+  .stat-num{ font-family:'Fraunces',serif; font-size:32px; color:var(--amber); display:block; font-optical-sizing:none; font-variation-settings:'opsz' 30; }
   .stat-label{ font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:rgba(245,241,232,0.7); }
 
   /* ===== ABOUT ===== */
@@ -216,6 +218,24 @@
   body.dark .cert-card h4{ color:var(--cream); }
   .cert-issuer{ font-size:12px; color:var(--ink-soft); letter-spacing:0.02em; }
 
+  /* ===== CASE STUDIES ===== */
+  .case-study{ border-radius:var(--radius); overflow:hidden; margin-bottom:34px; border:1px solid var(--line); background:var(--card); box-shadow:0 20px 44px rgba(14,46,33,0.1); }
+  .case-banner{ background:linear-gradient(120deg, var(--forest) 0%, var(--forest-2) 100%); padding:30px 30px 26px; position:relative; overflow:hidden; }
+  .case-banner::after{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 85% 20%, rgba(230,168,68,0.25), transparent 55%); }
+  .case-num{ font-family:'Manrope',sans-serif; font-weight:800; font-size:13px; letter-spacing:0.15em; color:var(--amber); position:relative; z-index:1; }
+  .case-banner h3{ font-family:'Fraunces',serif; font-optical-sizing:none; font-variation-settings:'opsz' 30; color:#F5F1E8; font-size:clamp(21px,3vw,28px); font-weight:600; margin-top:8px; position:relative; z-index:1; line-height:1.25; }
+  .case-body{ padding:28px 30px 30px; }
+  .case-body p{ color:var(--ink-soft); font-size:15px; line-height:1.65; margin-bottom:22px; }
+  .case-body p b{ color:var(--amber-deep); font-weight:800; }
+  .case-compare{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .case-shot{ position:relative; border-radius:12px; overflow:hidden; border:1px solid var(--line); }
+  .case-shot img{ width:100%; display:block; }
+  .case-shot.single{ grid-column:1/-1; }
+  .shot-tag{ position:absolute; top:10px; left:10px; z-index:2; font-size:10px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; padding:5px 12px; border-radius:999px; color:#fff; }
+  .shot-tag.before{ background:rgba(14,46,33,0.85); }
+  .shot-tag.after{ background:var(--amber-deep); color:var(--forest); }
+  @media(max-width:520px){ .case-compare{ grid-template-columns:1fr; } }
+
   .skill-card .service-icon{ margin-bottom:14px; }
   .skill-card h4{ font-family:'Fraunces',serif; font-size:18px; color:var(--forest); }
   body.dark .skill-card h4{ color:var(--cream); }
@@ -309,6 +329,11 @@
   .reveal-up{ opacity:0; transform:translateY(30px); transition:opacity 0.7s ease, transform 0.7s ease; }
   .reveal-up.in-view{ opacity:1; transform:translateY(0); }  .type-cursor{ display:inline-block; color:var(--amber); animation:blink 0.9s step-start infinite; font-weight:400; }
   @keyframes blink{ 50%{ opacity:0; } }
+  .about-sub, .orbit-name, .quote-mark, .quote-card p, .t-year, .cert-card h4, .skill-card h4,
+  .skill-bar-name, .work-before b, .work-after b, .work-hero-num, .testi-quote-icon, .testi-card p{
+    font-optical-sizing:none;
+    font-variation-settings:'opsz' 30;
+  }
 </style>
 </head>
 <body>
@@ -678,11 +703,69 @@
   </div>
 </section>
 
+<!-- CASE STUDIES (DETAILED) -->
+<section id="case-studies">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num">(07) — Case Studies</span>
+      <span class="section-num">Client Results</span>
+    </div>
+    <h2 style="font-size:clamp(32px,4.5vw,46px); margin-bottom:14px;">Real SEO Growth, Documented.</h2>
+    <p style="color:var(--ink-soft); max-width:640px; margin-bottom:40px;">Five case studies covering technical SEO, local search, content strategy, and AI visibility — with screenshots straight from the dashboards.</p>
+
+    <div class="case-study">
+      <div class="case-banner"><span class="case-num">01</span><h3>From Invisible to 47,600 Monthly Clicks</h3></div>
+      <div class="case-body">
+        <p>This site was practically invisible — 58 clicks and 4.9K impressions a month, buried at position 13.8. A full technical SEO audit paired with a content strategy built around real search intent took it to 47.6K clicks and 2.56M impressions, with average position climbing to 5.7 — an <b>820x</b> jump in six months.</p>
+        <div class="case-compare">
+          <div class="case-shot"><span class="shot-tag before">Before</span><img src="case1-before.jpg" alt="Search Console before — 58 clicks, 4.89K impressions" loading="lazy"></div>
+          <div class="case-shot"><span class="shot-tag after">After</span><img src="case1-after.jpg" alt="Search Console after — 47.6K clicks, 2.56M impressions" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study">
+      <div class="case-banner"><span class="case-num">02</span><h3>3 Calls a Month to 289: A Local SEO Turnaround</h3></div>
+      <div class="case-body">
+        <p>This UK clinic was getting 3 calls a month from their Google Business Profile — practically off the map locally. By rebuilding their local SEO around exactly what patients were searching for, monthly calls jumped to 289: a <b>96x</b> increase that made them the first choice in their area.</p>
+        <div class="case-compare">
+          <div class="case-shot"><span class="shot-tag before">Before</span><img src="case2-before.jpg" alt="Google Business Profile before — 3 calls" loading="lazy"></div>
+          <div class="case-shot"><span class="shot-tag after">After</span><img src="case2-after.jpg" alt="Google Business Profile after — 289 calls" loading="lazy"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="case-study">
+      <div class="case-banner"><span class="case-num">03</span><h3>10,500+ AI Citations: Becoming the Cited Source</h3></div>
+      <div class="case-body">
+        <p>As search shifts toward AI, staying visible means being the source AI trusts. By optimizing content specifically for large language models, this brand secured <b>10,500+ citations</b> across AI engines like Microsoft Copilot, with 18 individual pages recognized as trusted, cited references.</p>
+        <div class="case-shot single"><img src="case3-result.jpg" alt="AI Performance dashboard — 10.5K citations, 18 cited pages" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="case-study">
+      <div class="case-banner"><span class="case-num">04</span><h3>Winning the Google AI Overview Spot</h3></div>
+      <div class="case-body">
+        <p>Google now answers medical questions directly through AI Overview — so this client needed to be the answer, not just a link. By strengthening E-E-A-T signals and restructuring content for clarity and accuracy, the page became the <b>#1 primary source</b> cited in Google's AI Overview.</p>
+        <div class="case-shot single"><img src="case4-result.jpg" alt="Google AI Overview citing client as primary source" loading="lazy"></div>
+      </div>
+    </div>
+
+    <div class="case-study">
+      <div class="case-banner"><span class="case-num">05</span><h3>+46.1% Organic Traffic in a 30-Day Sprint</h3></div>
+      <div class="case-body">
+        <p>Proof that SEO and AI visibility can move together, fast. In a focused 30-day sprint, organic traffic grew <b>+46.1%</b> (807 → 1,179 sessions), while the brand picked up 20+ AI visibility points and citations across ChatGPT, Google AI Overview, AI Mode, and Gemini.</p>
+        <div class="case-shot single"><img src="case5-result.jpg" alt="AI Search and SEO dashboard — +46.1% traffic, 20+ AI visibility" loading="lazy"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section id="testimonials">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">(07) — Testimonials</span>
+      <span class="section-num">(08) — Testimonials</span>
       <span class="section-num">Client Words</span>
     </div>
     <h2 style="font-size:clamp(32px,4.5vw,46px); margin-bottom:14px;">Kind Words</h2>
@@ -712,7 +795,7 @@
 <section id="contact">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num">(08) — Contact</span>
+      <span class="section-num">(09) — Contact</span>
       <span class="section-num">Let's Fix Your SEO Authority</span>
     </div>
 
@@ -828,7 +911,7 @@
 
   // Scroll-reveal: content slides in as you scroll down
   (function(){
-    const targets = document.querySelectorAll('section h2, section > .wrap > p, .section-head, .pill-row, .service-card, .work-card, .skill-card, .testi-card, .timeline-item, .cert-card, .about-body, .about-sub');
+    const targets = document.querySelectorAll('section h2, section > .wrap > p, .section-head, .pill-row, .service-card, .work-card, .case-study, .skill-card, .testi-card, .timeline-item, .cert-card, .about-body, .about-sub');
     targets.forEach((el, i) => {
       el.classList.add(i % 2 === 0 ? 'reveal' : 'reveal-up');
     });
